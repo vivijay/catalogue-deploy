@@ -1,8 +1,7 @@
 pipeline {
     agent { node { label 'AGENT-1' } }
-    environment{
-        // here if you create any variable you will have global access, since it is env so no neeed of def
-        packageVersion = ''
+    parameters{
+        string(name: 'Version', defaultValue: '1.0.1', description: 'Which version to deploy')
     }
     stages {
         stage('Deploy') {
